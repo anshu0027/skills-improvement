@@ -92,6 +92,33 @@ export default function DesignTrackView({ track }: { track: DesignTrack }) {
         ))}
       </div>
 
+      {track.realWorldExamples.length > 0 && (
+        <>
+          <SectionLabel>REAL-WORLD INTERVIEW PROBLEMS</SectionLabel>
+          <div className="flex flex-col gap-3">
+            {track.realWorldExamples.map((example, i) => (
+              <article key={example.prompt} className="rounded-xl border border-[#1e1e1e] bg-[#101010] p-4 sm:p-5">
+                <div className="mb-2 text-[12px] font-black tabular-nums text-[#555]">
+                  PROBLEM {String(i + 1).padStart(2, "0")}
+                </div>
+                <h2 className="text-[15px] font-bold leading-snug text-[#f0f0f0]">{example.prompt}</h2>
+                <p className="mt-1.5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#777]">
+                  {example.askedBy}
+                </p>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[#bdbdbd]">{example.scenario}</p>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {example.mustCover.map((item) => (
+                    <span key={item} className="rounded-full border border-[#2a2a2a] bg-[#0d0d0d] px-2 py-0.5 text-[11px] font-medium text-[#888]">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </>
+      )}
+
       {track.interviewPhrases.length > 0 && (
         <>
           <SectionLabel>WHAT TO SAY IN INTERVIEWS</SectionLabel>

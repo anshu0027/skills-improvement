@@ -210,6 +210,44 @@ permissions: principal_id, document_id, role`,
       focus: ["chunk metadata", "vector references", "permission filters", "re-indexing", "eval data"],
     },
   ],
+
+  realWorldExamples: [
+    {
+      prompt: "Design the database for Amazon/Flipkart order checkout.",
+      askedBy: "Common e-commerce backend and DB design interview pattern",
+      scenario:
+        "A user places an order with multiple items, coupons, taxes, shipment updates, cancellation/refund flows, and admin queries by user, order ID, and time range.",
+      mustCover: ["orders and order_items", "payment attempts", "inventory reservation", "status history", "user/time indexes", "refund records"],
+    },
+    {
+      prompt: "Design the database for a wallet, UPI, or Stripe-like payment ledger.",
+      askedBy: "Common fintech interview pattern",
+      scenario:
+        "Money moves between accounts, retries and webhooks can arrive more than once, balances must be explainable, and finance teams need reconciliation reports.",
+      mustCover: ["double-entry ledger", "immutable entries", "idempotency keys", "balance snapshots", "reconciliation", "audit trail"],
+    },
+    {
+      prompt: "Design the database for Instagram/Twitter posts, likes, comments, and followers.",
+      askedBy: "Common social product DB design interview pattern",
+      scenario:
+        "Users create posts, follow accounts, like/comment at high volume, browse timelines, and celebrities create hot partitions.",
+      mustCover: ["follow graph", "post table", "likes uniqueness", "comment pagination", "feed projection", "hot-key mitigation"],
+    },
+    {
+      prompt: "Design the database for Airbnb hotel/property booking.",
+      askedBy: "Common booking and calendar availability interview pattern",
+      scenario:
+        "Guests search available rooms, reserve date ranges, hosts update calendars, payments expire, and the same inventory must not be booked twice.",
+      mustCover: ["availability calendar", "date-range constraints", "booking state", "temporary holds", "payment attempts", "search filters"],
+    },
+    {
+      prompt: "Design the database for a multi-tenant Jira/Notion-style SaaS workspace.",
+      askedBy: "Common enterprise SaaS DB design interview pattern",
+      scenario:
+        "Many organizations share the product, each workspace has users, roles, projects/pages, comments, audit logs, billing, and strict tenant isolation.",
+      mustCover: ["tenant_id strategy", "RBAC tables", "unique constraints", "audit logs", "soft deletes", "tenant-scoped indexes"],
+    },
+  ],
   interviewPhrases: [
     "I will design the schema from access patterns, not just from entities.",
     "This field needs a constraint because correctness is more important than application-only validation here.",

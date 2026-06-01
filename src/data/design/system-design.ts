@@ -183,6 +183,44 @@ client -> API -> auth -> query rewrite
       focus: ["model gateway", "batching", "fallbacks", "timeouts", "observability", "cost budgets"],
     },
   ],
+
+  realWorldExamples: [
+    {
+      prompt: "Design WhatsApp or Slack-style messaging for one-to-one and large group chats.",
+      askedBy: "Common Meta, Microsoft, Amazon, and startup interview pattern",
+      scenario:
+        "Users expect instant delivery when online, durable history when offline, typing/presence signals, media attachments, and message search across devices.",
+      mustCover: ["WebSocket gateways", "message ordering", "offline delivery", "group fanout", "read receipts", "multi-device sync"],
+    },
+    {
+      prompt: "Design Uber/Ola ride matching during peak traffic in a city.",
+      askedBy: "Common marketplace and location-system interview pattern",
+      scenario:
+        "Riders request nearby drivers, drivers move every few seconds, pricing changes with demand, and the system must recover when drivers reject or cancel rides.",
+      mustCover: ["geo indexing", "driver location stream", "matching state machine", "surge pricing", "timeouts", "eventual consistency"],
+    },
+    {
+      prompt: "Design YouTube/Netflix video upload, processing, and streaming.",
+      askedBy: "Common Google, Netflix-style media platform interview pattern",
+      scenario:
+        "Creators upload large videos, background workers transcode multiple qualities, viewers stream from the nearest edge, and analytics must handle massive event volume.",
+      mustCover: ["pre-signed upload", "object storage", "transcoding queue", "CDN", "adaptive bitrate", "analytics pipeline"],
+    },
+    {
+      prompt: "Design a Gmail/Outlook notification and inbox system.",
+      askedBy: "Common enterprise SaaS and productivity interview pattern",
+      scenario:
+        "Users receive many messages, need unread counts and search, expect push/email alerts, and must not receive duplicate notifications after retries.",
+      mustCover: ["inbox write path", "search index", "unread counters", "notification preferences", "idempotent sends", "rate limits"],
+    },
+    {
+      prompt: "Design a ticket booking system like BookMyShow or Ticketmaster.",
+      askedBy: "Common high-contention inventory interview pattern",
+      scenario:
+        "Thousands of users compete for limited seats, selected seats need temporary holds, payments can fail, and inventory must never be oversold.",
+      mustCover: ["seat locking", "TTL holds", "payment state", "idempotency", "queueing traffic spikes", "consistency"],
+    },
+  ],
   interviewPhrases: [
     "I will start with requirements and scale before choosing technologies.",
     "The main bottleneck seems to be the read path/write path/fanout path; I will optimize that first.",

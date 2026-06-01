@@ -11,6 +11,13 @@ export interface DesignCaseStudy {
   focus: string[];
 }
 
+export interface DesignRealWorldExample {
+  prompt: string;
+  askedBy: string;
+  scenario: string;
+  mustCover: string[];
+}
+
 export interface DesignQA {
   q: string;
   a: string;
@@ -27,6 +34,7 @@ export interface DesignTrack {
   framework: string[];
   concepts: DesignConcept[];
   caseStudies: DesignCaseStudy[];
+  realWorldExamples: DesignRealWorldExample[];
   interviewPhrases: string[];
   interviewQs: DesignQA[];
   build: string[];
