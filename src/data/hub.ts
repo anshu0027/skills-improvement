@@ -32,6 +32,24 @@ export const hubSections: HubSection[] = [
     icon: "book",
   },
   {
+    key: "system-design",
+    title: "System Design",
+    blurb:
+      "Master MNC HLD rounds: requirements, scale estimates, APIs, caching, queues, consistency, observability, and AI-era tradeoffs.",
+    href: "/system-design",
+    stat: "MNC rounds · HLD",
+    icon: "network",
+  },
+  {
+    key: "db-design",
+    title: "DB Design",
+    blurb:
+      "Design production-grade schemas, indexes, transactions, partitions, cache keys, search projections, and RAG metadata models.",
+    href: "/db-design",
+    stat: "Schema · scale · correctness",
+    icon: "database",
+  },
+  {
     key: "career",
     title: "Career Plan",
     blurb:
